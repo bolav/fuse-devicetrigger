@@ -1,0 +1,24 @@
+<App Theme="Basic">
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+		var model = Observable('SONY');
+		var product = Observable('Something');
+		var click = function () {
+			product.value = "Testing";
+			model.value = "Samsung";
+		}
+		module.exports = {
+			model: model,
+			product: product,
+			click: click
+		}
+	</JavaScript>
+	<ClientPanel>
+		<StackPanel>
+			<DeviceTrigger Platform="CIL" Model="{model}" Product="{product}" Debug="true">
+				<Button Text="Hello" Clicked="{click}" />
+			</DeviceTrigger>
+		</StackPanel>
+	</ClientPanel>
+</App>
+
